@@ -65,7 +65,7 @@ describe('Controller', function()
         });
     });
 
-    it ('Invocation success', function(done)
+    it ('Invocation success 1: with callback', function(done)
     {
         const name     = 'John Doe';
         const message = {
@@ -79,6 +79,39 @@ describe('Controller', function()
         {
             assert.bool(!error).isTrue();
             assert.string(data).isEqualTo(`Hello ${name}!`);
+        });
+
+        done();
+    });
+
+    it ('Invocation success 2: without callback', function(done)
+    {
+        const name     = 'John Doe';
+        const message = {
+            command: 'hello',
+            action : 'world',
+            params : {name: name},
+        };
+
+        const controller = new Controller(__dirname + '../../commands');
+        controller.handle(message);
+
+        done();
+    });
+
+    it ('Invocation success 3: without params', function(done)
+    {
+        const name     = 'John Doe';
+        const message = {
+            command: 'hello',
+            action : 'hola',
+        };
+
+        const controller = new Controller(__dirname + '../../commands');
+        controller.handle(message, function(error, data)
+        {
+            assert.bool(!error).isTrue();
+            assert.string(data).isEqualTo('Hola, que tal?');
         });
 
         done();
