@@ -1,17 +1,17 @@
 {
   "name": "controller-handler",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Controller handler for message queues",
   "main": "index.js",
-  "homepage": "https://www.npmjs.com/package/controller-handler",
+  "homepage": "https://github.com/leonardothibes/node-controller-handler#readme",
   "author": "Leonardo Thibes <leonardothibes@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leonardothibes/controller-handler.git"
+    "url": "git+https://github.com/leonardothibes/node-controller-handler.git"
   },
   "bugs": {
-    "url": "https://github.com/leonardothibes/controller-handler/issues"
+    "url": "https://github.com/leonardothibes/node-controller-handler/issues"
   },
   "keywords": [
     "controller"
