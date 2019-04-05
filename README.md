@@ -14,7 +14,7 @@ npm install controller-handler --save
 Examples
 --------
 
-The example below will require a file called __hello.js__ and will invoke the __world__ method into this file, passing to the the object the parameters __{name: 'john'}__ and callback.
+The example below will require a file called __hello.js__ and will invoke the __world__ method into this file, passing to the the object the parameters __{name: 'john'}__ and a callback.
 
 ```js
 'use strict';
