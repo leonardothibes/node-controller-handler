@@ -1,6 +1,6 @@
 {
   "name": "controller-handler",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "Controller handler for message queues",
   "main": "index.js",
   "homepage": "https://github.com/leonardothibes/node-controller-handler#readme",
