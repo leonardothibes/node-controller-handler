@@ -138,4 +138,23 @@ describe('Controller', function()
 
         done();
     });
+
+    it ('Invocation error 4: action not found', function(done)
+    {
+        const message = {
+            command: 'hello',
+            action : 'invalid',
+            params : {name: 'john'},
+        };
+
+        const controller = new Controller(__dirname + '../../commands');
+        controller.handle(message, function(error)
+        {
+            assert.object(error);
+            assert.string(error.code).isEqualTo('ERROR');
+            assert.string(error.message).isEqualTo('Action not found');
+        });
+
+        done();
+    });
 });
