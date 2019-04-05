@@ -14,6 +14,13 @@ npm install controller-handler --save
 Examples
 --------
 
+* [Basic Usage](#basic-usage)
+* [Message Validation](#message-validation)
+* [Simple Message Validation](#simple-message-validation)
+
+Basic Usage
+-----------
+
 The example below will require a file called __hello.js__ and will invoke the __world__ method into this file, passing to the the object the parameters __{name: 'john'}__ and a callback.
 
 ```js
@@ -33,6 +40,51 @@ controller.handle(message, function(error, data)
     console.log(error); // In case of error
     console.log(data);  // In case of success
 });
+```
+
+Message Validation
+------------------
+
+```js
+'use strict';
+
+const Controller = require('controller-handler'),
+      controller = new Controller(__dirname + '/src/commands');
+
+const message = {
+    command: 'hello',
+    action : 'world',
+    params : {name: 'john'},
+};
+
+const validation = controller.validate(message);
+```
+
+The validation object returned by __validate()__ will looks like this:
+```js
+{
+    command: true, // "command" param is provided and file "./src/commands/hello.js" exists
+    action : true, // "action" param is provided and method "world" exists
+    params : true, // "params" param is provided and it is a valid object
+}
+```
+
+Simple Message Validation
+-------------------------
+
+```js
+'use strict';
+
+const Controller = require('controller-handler'),
+      controller = new Controller(__dirname + '/src/commands');
+
+const message = {
+    command: 'hello',
+    action : 'world',
+    params : {name: 'john'},
+};
+
+const validation = controller.isValid(message); // TRUE
 ```
 
 Test and development
