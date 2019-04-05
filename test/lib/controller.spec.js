@@ -5,7 +5,7 @@ const Controller = require('../../lib/controller'),
 
 describe('Controller', function()
 {
-    it('Message 1 is VALID', function(done)
+    it('Message 01 is VALID', function(done)
     {
         const message = {command: 'command', action: 'action'};
 
@@ -20,7 +20,7 @@ describe('Controller', function()
         done();
     });
 
-    it('Message 2 is VALID', function(done)
+    it('Message 02 is VALID', function(done)
     {
         const message = {command: 'command', action: 'action', params: {}};
 
@@ -36,6 +36,12 @@ describe('Controller', function()
     });
 
     [
+        true,
+        false,
+        1,
+        0,
+        'a',
+        '1',
         '',
         {},
         {command: ''},
@@ -44,7 +50,8 @@ describe('Controller', function()
         {command: 'command', action: 'action', params: ''},
     ].forEach(function(message, i)
     {
-        it(`Message ${i+3} is INVALID`, function(done)
+        var number = i+3;
+        it(`Message ${number < 10 ? '0' + number : number} is INVALID`, function(done)
         {
             const controller = new Controller(),
                   validation = controller.validate(message),
