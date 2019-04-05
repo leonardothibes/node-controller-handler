@@ -64,4 +64,78 @@ describe('Controller', function()
             done();
         });
     });
+
+    it ('Invocation success', function(done)
+    {
+        const name     = 'John Doe';
+        const message = {
+            command: 'hello',
+            action : 'world',
+            params : {name: name},
+        };
+
+        const controller = new Controller(__dirname + '../../commands');
+        controller.handle(message, function(error, data)
+        {
+            assert.bool(!error).isTrue();
+            assert.string(data).isEqualTo(`Hello ${name}!`);
+        });
+
+        done();
+    });
+
+    it ('Invocation error 1: command missing', function(done)
+    {
+        const message = {
+            action : 'world',
+            params : {name: 'john'},
+        };
+
+        const controller = new Controller(__dirname + '../../commands');
+        controller.handle(message, function(error)
+        {
+            assert.object(error);
+            assert.string(error.code).isEqualTo('ERROR');
+            assert.string(error.message).isEqualTo('Command is missing');
+        });
+
+        done();
+    });
+
+    it ('Invocation error 2: command not found', function(done)
+    {
+        const message = {
+            command: 'invalid',
+            action : 'world',
+            params : {name: 'john'},
+        };
+
+        const controller = new Controller(__dirname + '../../commands');
+        controller.handle(message, function(error)
+        {
+            assert.object(error);
+            assert.string(error.code).isEqualTo('ERROR');
+            assert.string(error.message).isEqualTo('Command not found');
+        });
+
+        done();
+    });
+
+    it ('Invocation error 3: action missing', function(done)
+    {
+        const message = {
+            command: 'hello',
+            params : {name: 'john'},
+        };
+
+        const controller = new Controller(__dirname + '../../commands');
+        controller.handle(message, function(error)
+        {
+            assert.object(error);
+            assert.string(error.code).isEqualTo('ERROR');
+            assert.string(error.message).isEqualTo('Action is missing');
+        });
+
+        done();
+    });
 });
