@@ -1,7 +1,5 @@
 # Controller Handler [![npm](http://img.shields.io/npm/v/controller-handler.svg)](https://www.npmjs.com/package/controller-handler) ![Downloads](https://img.shields.io/npm/dm/controller-handler.svg) [![Build Status](https://secure.travis-ci.org/leonardothibes/controller-handler.png)](http://travis-ci.org/leonardothibes/controller-handler) [![Package Quality](http://npm.packagequality.com/shield/controller-handler.svg)](http://packagequality.com/#?package=controller-handler) [![License](https://img.shields.io/npm/l/controller-handler.svg)](LICENSE)
 
-Ainda não tem nada funcional aqui. Volte outro dia!
-
 Controller handler for message queues.
 
 Installation
