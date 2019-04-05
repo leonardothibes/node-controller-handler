@@ -84,7 +84,7 @@ const message = {
     params : {name: 'john'},
 };
 
-const validation = controller.isValid(message); // TRUE
+const valid = controller.isValid(message); // TRUE
 ```
 
 Test and development
