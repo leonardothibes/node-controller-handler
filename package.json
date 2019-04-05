@@ -1,6 +1,6 @@
 {
   "name": "controller-handler",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Controller handler for message queues",
   "main": "index.js",
   "homepage": "https://www.npmjs.com/package/controller-handler",
