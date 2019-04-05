@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Controller handler for message queues",
   "main": "index.js",
-  "homepage": "https://github.com/leonardothibes/controller-handler#readme",
+  "homepage": "https://www.npmjs.com/package/controller-handler",
   "author": "Leonardo Thibes <leonardothibes@gmail.com>",
   "license": "MIT",
   "repository": {
